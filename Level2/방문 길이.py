@@ -5,16 +5,18 @@ def solution(dirs):
     x = 0
     y = 0
     for c in dirs:
-        if command[c][0] != 0 and abs(x + command[c][0]) <= 5:
-            if (x, x + command[c][0], y, y) not in path:
-                path.append((x, x + command[c][0], y, y))
-                path.append((x + command[c][0], x, y, y))
+        a = command[c][0]
+        b = command[c][1]
+        if a != 0 and abs(x + a) <= 5:
+            if (x, x + a, y, y) not in path:
+                path.append((x, x + a, y, y))
+                path.append((x + a, x, y, y))
                 answer += 1
-            x += command[c][0]
-        if command[c][1] != 0 and abs(y + command[c][1]) <= 5:
-            if (x, x, y, y + command[c][1]) not in path:
-                path.append((x, x, y, y + command[c][1]))
-                path.append((x, x, y + command[c][1], y))
+            x += a
+        if b != 0 and abs(y + b) <= 5:
+            if (x, x, y, y + b) not in path:
+                path.append((x, x, y, y + b))
+                path.append((x, x, y + b, y))
                 answer += 1
-            y += command[c][1]
+            y += b
     return answer
