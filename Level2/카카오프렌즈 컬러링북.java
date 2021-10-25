@@ -1,5 +1,3 @@
-package programmers;
-
 class Solution {
     int[] solution(int m, int n, int[][] picture) {
         int numberOfArea = 0;
